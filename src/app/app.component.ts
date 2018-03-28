@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Todo App';
+  newTodo = '';
+  todoList: Array<string> = [];
+  isEdit = false;
+  addTodo() {
+    this.todoList.push(this.newTodo);
+    this.newTodo = '';
+    console.log(this.todoList);
+  }
+  deleteTodo(todo) {
+    this.todoList = this.todoList.filter((e) => e !== todo);
+    console.log('[Debug]Todo deleted: ' + todo);
+  }
+
 }
